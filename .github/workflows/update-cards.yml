@@ -1,0 +1,51 @@
+name: Update Profile Cards
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  generate-cards:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout profile-cards repository
+        uses: actions/checkout@v4
+        with:
+          repository: haishhun/profile-cards
+          ref: main
+          token: ${{ secrets.PROFILE_REPO_TOKEN }}
+          path: profile-cards
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate profile and streak cards
+        working-directory: profile-cards
+        env:
+          GH_USERNAME: haishhun
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: python generate_cards.py
+
+      - name: Commit and push updated SVGs
+        working-directory: profile-cards
+        env:
+          GH_TOKEN: ${{ secrets.PROFILE_REPO_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add assets/*.svg
+
+          if git diff --cached --quiet; then
+            echo "Cards have not changed."
+          else
+            git commit -m "chore: update profile cards"
+            git push origin HEAD:main
+          fi
