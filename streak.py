@@ -34,15 +34,17 @@ query($login: String!, $from: DateTime!, $to: DateTime!) {
 
 THEMES = {
     "dark": dict(
-        bg="#18181b",
-        border="#27272a",
-        label="#a1a1aa",
-        cur="#a78bfa",
-        longest="#fafafa",
-        divider="#3f3f46",
-        bar_bg="#27272a",
-        bar_fill="#a78bfa",
-        date="#a1a1aa",
+        bg="#161B22",
+        border="#30363D",
+        text="#F0F6FC",
+        muted="#8B949E",
+        line="#30363D",
+        ring_bg="#30363D",
+        badges=[
+            ("#2b2410", "#4a3d17", "#d9a021"),
+            ("#241b3a", "#3f2f69", "#b794f6"),
+            ("#14281c", "#1f4a2e", "#4ade80"),
+        ],
     ),
     "light": dict(
         bg="#ffffff",
