@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="495" height="312" viewBox="0 0 495 312" role="img" aria-label="GitHub streaks: current 3, longest 9">
+      <rect x="0.5" y="0.5" width="494" height="311" rx="14" fill="#18181b" stroke="#27272a"/>
+      <g font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+        <text x="28" y="37" font-size="13" font-weight="600" letter-spacing="2.5" fill="#a1a1aa">STREAKS</text>
+
+        <line x1="247.5" y1="82" x2="247.5" y2="188" stroke="#3f3f46"/>
+
+        <text x="123.75" y="102" text-anchor="middle" font-size="12" font-weight="600" letter-spacing="2.5" fill="#a1a1aa">CURRENT</text>
+        <text x="123.75" y="172" text-anchor="middle" font-size="68" font-weight="700" fill="#9BE564">3</text>
+
+        <text x="371.25" y="102" text-anchor="middle" font-size="12" font-weight="600" letter-spacing="2.5" fill="#a1a1aa">LONGEST</text>
+        <text x="371.25" y="172" text-anchor="middle" font-size="68" font-weight="700" fill="#9BE564">9</text>
+
+        <rect x="28" y="236" width="439" height="8" rx="4" fill="#27272a"/>
+        <rect x="28" y="236" width="146.3" height="8" rx="4" fill="#9BE564"/>
+
+        <text x="28" y="274" font-size="12" fill="#a1a1aa">Oct 25 - Oct 27, 2026</text>
+        <text x="467" y="274" text-anchor="end" font-size="12" fill="#a1a1aa">Oct 5 - Oct 13, 2026</text>
+      </g>
+    </svg>
+    
