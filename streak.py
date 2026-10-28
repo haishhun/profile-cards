@@ -42,6 +42,7 @@ THEMES = {
         line="#30363D",
         bar_bg="#30363D",
         divider="#30363D",
+        date="#8B949E",
     ),
     "light": dict(
         bg="#FFFFFF",
@@ -52,6 +53,7 @@ THEMES = {
         line="#E4E4E7",
         bar_bg="#E4E4E7",
         divider="#E4E4E7",
+        date="#71717A",
     ),
 }
 
