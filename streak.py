@@ -35,14 +35,14 @@ query($login: String!, $from: DateTime!, $to: DateTime!) {
 THEMES = {
     "dark": dict(
         bg="#0D1116",
-        border="#30363D",
+        border="#3D444D",
         text="#F0F6FC",
-        muted="#8B949E",
-        label="#8B949E",
+        muted="#9198A1",
+        label="#9198A1",
         line="#30363D",
         bar_bg="#30363D",
         divider="#30363D",
-        date="#8B949E",
+        date="#9198A1",
     ),
     "light": dict(
         bg="#FFFFFF",
@@ -56,6 +56,7 @@ THEMES = {
         date="#71717A",
     ),
 }
+
 
 
 def gql(query, variables):

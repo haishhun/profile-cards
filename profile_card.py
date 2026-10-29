@@ -111,9 +111,9 @@ CATEGORY = {
 THEMES = {
     "dark": dict(
         bg="#0D1116",
-        border="#30363D",
+        border="#3D444D",
         text="#F0F6FC",
-        muted="#8B949E",
+        muted="#9198A1",
         line="#30363D",
         ring_bg="#30363D",
         badges=[
