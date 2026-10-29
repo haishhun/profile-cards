@@ -110,7 +110,7 @@ CATEGORY = {
 
 THEMES = {
     "dark": dict(
-        bg="#161B22",
+        bg="#0D1116",
         border="#30363D",
         text="#F0F6FC",
         muted="#8B949E",
