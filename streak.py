@@ -147,7 +147,10 @@ def render(theme, current, current_range, longest, longest_range, grade_color):
     left_date = fmt_range(current_range)
     right_date = fmt_range(longest_range)
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-label="GitHub streaks: current {current}, longest {longest}">
-      <rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="14" fill="{c["bg"]}" stroke="{c["border"]}"/>
+      <rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="14"
+      fill="{c["bg"]}"
+      stroke="{grade_color}"
+      stroke-opacity="0.30"/>
       <g font-family="{font}">
         <text x="{pad}" y="37" font-size="13" font-weight="600" letter-spacing="2.5" fill="{c["label"]}">STREAKS</text>
 

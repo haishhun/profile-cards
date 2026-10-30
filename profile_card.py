@@ -232,6 +232,8 @@ def fmt(n):
 def render(theme, metrics, badges, total, grade, strong):
     t = THEMES[theme]
     gcolor = GRADE_COLORS[grade][0 if theme == "dark" else 1]
+    border_color = gcolor
+    border_opacity = 0.30
     divider_color = gcolor
     w, h, pad = 495, 312, 28
     font = "Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
@@ -261,7 +263,10 @@ def render(theme, metrics, badges, total, grade, strong):
         x += bw + 10
 
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-label="Developer profile: grade {grade}, score {total} of 100">
-  <rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="14" fill="{t["bg"]}" stroke="{t["border"]}"/>
+  <rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="14"
+      fill="{t["bg"]}"
+      stroke="{border_color}"
+      stroke-opacity="{border_opacity}"/>
   <g font-family="{font}">
     <circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{t["ring_bg"]}" stroke-width="8"/>
     <circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{gcolor}" stroke-width="8" stroke-linecap="round" stroke-dasharray="{dash:.1f} {circ:.1f}" transform="rotate(-90 {cx} {cy})"/>
@@ -270,9 +275,9 @@ def render(theme, metrics, badges, total, grade, strong):
     <text x="160" y="70" font-size="24" font-weight="700" fill="{t["text"]}">Developer Profile</text>
     <text x="160" y="96" font-size="14" fill="{t["muted"]}">{escape(headline)}</text>
     <text x="160" y="120" font-size="14" fill="{t["muted"]}">Score <tspan font-weight="700" fill="{t["text"]}">{total}</tspan> / 100</text>
-    <line x1="{pad}" y1="150" x2="{w - pad}" y2="150" stroke="{divider_color}" stroke-opacity="0.35"/>
+    <line x1="{pad}" y1="150" x2="{w - pad}" y2="150" stroke="{divider_color}" stroke-opacity="0.45"/>
     {"".join(stats)}
-    <line x1="{pad}" y1="250" x2="{w - pad}" y2="250" stroke="{divider_color}" stroke-opacity="0.35"/>
+    <line x1="{pad}" y1="250" x2="{w - pad}" y2="250" stroke="{divider_color}" stroke-opacity="0.45"/>
     {"".join(pills)}
   </g>
 </svg>
