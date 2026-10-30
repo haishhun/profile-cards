@@ -232,6 +232,7 @@ def fmt(n):
 def render(theme, metrics, badges, total, grade, strong):
     t = THEMES[theme]
     gcolor = GRADE_COLORS[grade][0 if theme == "dark" else 1]
+    divider_color = gcolor
     w, h, pad = 495, 312, 28
     font = "Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
     cx, cy, r = 75, 80, 44
@@ -265,13 +266,13 @@ def render(theme, metrics, badges, total, grade, strong):
     <circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{t["ring_bg"]}" stroke-width="8"/>
     <circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{gcolor}" stroke-width="8" stroke-linecap="round" stroke-dasharray="{dash:.1f} {circ:.1f}" transform="rotate(-90 {cx} {cy})"/>
     <text x="{cx}" y="{cy + 15}" text-anchor="middle" font-size="42" font-weight="700" fill="{gcolor}">{grade}</text>
-    <line x1="140" y1="42" x2="140" y2="118" stroke="{t["line"]}"/>
+    <line x1="140" y1="42" x2="140" y2="118" stroke="{divider_color}" stroke-opacity="0.5"/>
     <text x="160" y="70" font-size="24" font-weight="700" fill="{t["text"]}">Developer Profile</text>
     <text x="160" y="96" font-size="14" fill="{t["muted"]}">{escape(headline)}</text>
     <text x="160" y="120" font-size="14" fill="{t["muted"]}">Score <tspan font-weight="700" fill="{t["text"]}">{total}</tspan> / 100</text>
-    <line x1="{pad}" y1="150" x2="{w - pad}" y2="150" stroke="{t["line"]}"/>
+    <line x1="{pad}" y1="150" x2="{w - pad}" y2="150" stroke="{divider_color}" stroke-opacity="0.35"/>
     {"".join(stats)}
-    <line x1="{pad}" y1="250" x2="{w - pad}" y2="250" stroke="{t["line"]}"/>
+    <line x1="{pad}" y1="250" x2="{w - pad}" y2="250" stroke="{divider_color}" stroke-opacity="0.35"/>
     {"".join(pills)}
   </g>
 </svg>

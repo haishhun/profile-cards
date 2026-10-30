@@ -151,7 +151,7 @@ def render(theme, current, current_range, longest, longest_range, grade_color):
       <g font-family="{font}">
         <text x="{pad}" y="37" font-size="13" font-weight="600" letter-spacing="2.5" fill="{c["label"]}">STREAKS</text>
 
-        <line x1="{w / 2}" y1="82" x2="{w / 2}" y2="188" stroke="{c["divider"]}"/>
+        <line x1="{w / 2}" y1="82" x2="{w / 2}" y2="188" stroke="{grade_color}" stroke-opacity="0.5"/>
 
         <text x="{w / 4}" y="102" text-anchor="middle" font-size="12" font-weight="600" letter-spacing="2.5" fill="{c["label"]}">CURRENT</text>
         <text x="{w / 4}" y="172" text-anchor="middle" font-size="68" font-weight="700" fill="{grade_color}">{current}</text>
