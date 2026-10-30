@@ -3,7 +3,7 @@
       <g font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
         <text x="28" y="37" font-size="13" font-weight="600" letter-spacing="2.5" fill="#71717A">STREAKS</text>
 
-        <line x1="247.5" y1="82" x2="247.5" y2="188" stroke="#E4E4E7"/>
+        <line x1="247.5" y1="82" x2="247.5" y2="188" stroke="#70B83F" stroke-opacity="0.5"/>
 
         <text x="123.75" y="102" text-anchor="middle" font-size="12" font-weight="600" letter-spacing="2.5" fill="#71717A">CURRENT</text>
         <text x="123.75" y="172" text-anchor="middle" font-size="68" font-weight="700" fill="#70B83F">5</text>
