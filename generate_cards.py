@@ -4,6 +4,7 @@ import datetime as dt
 import sys
 
 import connect
+import intro
 import profile_card
 import streak
 
@@ -63,6 +64,14 @@ def main():
         output = profile_card.OUT_DIR / f"connect-{theme}.svg"
         output.write_text(
             connect.render_connect(theme),
+            encoding="utf-8",
+        )
+
+    # 7. Generate the intro banner ("Hi, I'm ...").
+    for theme in intro.THEMES:
+        output = profile_card.OUT_DIR / f"intro-{theme}.svg"
+        output.write_text(
+            intro.render(theme),
             encoding="utf-8",
         )
 
