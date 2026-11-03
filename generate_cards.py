@@ -1,8 +1,10 @@
+
 #!/usr/bin/env python3
 
 import datetime as dt
 import sys
 
+import connect
 import profile_card
 import streak
 
@@ -31,7 +33,7 @@ def main():
         counts, now.date()
     )
 
-    # 4. Use the exact grade colors from profile_card.py.
+    # 4. Generate streak cards using the exact grade colors.
     for theme in streak.THEMES:
         color_index = 0 if theme == "dark" else 1
         grade_color = profile_card.GRADE_COLORS[grade][color_index]
@@ -48,10 +50,14 @@ def main():
         output = streak.OUT_DIR / f"streak-{theme}.svg"
         output.write_text(svg, encoding="utf-8")
 
-    print(
-        f"Generated all cards | Grade: {grade} | Score: {total} | "
-        f"Current streak: {current} | Longest streak: {longest}"
-    )
+    # 5. Generate individual contact blocks.
+    for contact in connect.CONTACTS:
+        for theme in connect.THEMES:
+            output = profile_card.OUT_DIR / f"{contact}-{theme}.svg"
+            output.write_text(
+                connect.render(contact, theme),
+                encoding="utf-8",
+            )
 
 
 if __name__ == "__main__":

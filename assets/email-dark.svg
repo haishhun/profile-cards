@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    width="205" height="47"
+    viewBox="0 0 205 47"
+    role="img"
+    aria-label="Email: dzhaishun@gmail.com">
+
+  <rect x="0.75" y="0.75"
+        width="203.5" height="45.5"
+        rx="10"
+        fill="#161B22"
+        stroke="#6D5A91"
+        stroke-width="1"/>
+
+  <g transform="translate(25 10.5) scale(1.625)"
+     fill="#B794F6">
+    
+            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1
+            2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1
+            a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4
+            a1 1 0 0 0-1-1zm13 2.383-4.708
+            2.825L15 11.105zm-.034 6.876-5.64
+            -3.471L8 9.583l-1.326-.795-5.64
+            3.47A1 1 0 0 0 2 13h12a1 1 0 0 0
+            .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+        
+  </g>
+
+  <g font-family="Inter, -apple-system, 'Segoe UI', Arial, sans-serif">
+    <text x="73" y="19" font-size="12" font-weight="700"
+          fill="#F0F6FC">Email</text>
+
+    <text x="73" y="34" font-size="10"
+          fill="#8B949E">dzhaishun@gmail.com</text>
+  </g>
+</svg>
