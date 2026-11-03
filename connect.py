@@ -10,6 +10,14 @@ OUT_DIR = Path("assets")
 CARD_HEIGHT = 47
 TEXT_X = 73
 RIGHT_PADDING = 25
+CARD_GAP = 20          # approx. px between cards in the README (&nbsp; gaps)
+CONNECT_HEIGHT = 32
+CONNECT_LABEL = "Let's Connect"
+CONNECT_CHAR_W = 8.4   # approx. px per char, 16px bold
+RAW_BASE = (
+    "https://raw.githubusercontent.com/haishhun/profile-cards/"
+    "refs/heads/main/assets"
+)
 TITLE_CHAR_W = 7.2     # approx. px per char, 12px bold
 SUBTITLE_CHAR_W = 5.6  # approx. px per char, 10px regular
 
@@ -156,19 +164,79 @@ def render(contact_key: str, theme: str) -> str:
 """
 
 
+def row_width() -> int:
+    """Approximate width of the whole card row, so the heading matches it."""
+    n = len(CONTACTS)
+    return card_width() * n + CARD_GAP * (n - 1)
+
+
+def render_connect(theme: str) -> str:
+    """Render the "Let's Connect" heading: icon + label between two lines."""
+
+    if theme not in THEMES:
+        raise ValueError(f"Unknown theme: {theme}")
+
+    c = THEMES[theme]
+    width = row_width()
+    height = CONNECT_HEIGHT
+    cy = height / 2
+
+    icon_size = 20
+    icon_gap = 8
+    label_w = len(CONNECT_LABEL) * CONNECT_CHAR_W
+    group_w = icon_size + icon_gap + label_w
+    start = (width - group_w) / 2
+    line_gap = 16
+
+    return f"""<svg xmlns="http://www.w3.org/2000/svg"
+    width="{width}" height="{height}"
+    viewBox="0 0 {width} {height}"
+    role="img"
+    aria-label="{escape(CONNECT_LABEL)}">
+
+  <line x1="0" y1="{cy}" x2="{start - line_gap:.1f}" y2="{cy}"
+        stroke="{c['border']}" stroke-width="1"/>
+  <line x1="{start + group_w + line_gap:.1f}" y1="{cy}"
+        x2="{width}" y2="{cy}"
+        stroke="{c['border']}" stroke-width="1"/>
+
+  <g transform="translate({start:.1f} {cy - icon_size / 2}) scale({icon_size / 16})"
+     fill="none" stroke="{c['accent']}" stroke-width="1.1"
+     stroke-linejoin="round">
+    <path d="M8 2C4.5 2 1.5 4.4 1.5 7.5c0 1.4.6 2.6 1.6 3.6
+             -.1 1-.4 1.8-.9 2.6 1.2-.3 2.2-.7 2.8-1.1
+             .8.3 1.7.4 2.5.4 3.5 0 6.5-2.4 6.5-5.5S11.5 2 8 2z"/>
+  </g>
+
+  <text x="{start + icon_size + icon_gap:.1f}" y="{cy + 5.5}"
+        font-family="Inter, -apple-system, 'Segoe UI', Arial, sans-serif"
+        font-size="16" font-weight="700"
+        fill="{c['text']}">{escape(CONNECT_LABEL)}</text>
+</svg>
+"""
+
+
+def picture(name: str, height: int, alt: str) -> str:
+    """Theme-aware <picture> tag pointing at the raw GitHub URLs."""
+    return (
+        f'<picture>'
+        f'<source media="(prefers-color-scheme: dark)" '
+        f'srcset="{RAW_BASE}/{name}-dark.svg" />'
+        f'<source media="(prefers-color-scheme: light)" '
+        f'srcset="{RAW_BASE}/{name}-light.svg" />'
+        f'<img src="{RAW_BASE}/{name}-dark.svg" height="{height}" '
+        f'alt="{escape(alt)}" />'
+        f'</picture>'
+    )
+
+
 def readme_snippet(contact_key: str) -> str:
     """Return the README markup that makes a card clickable and theme-aware."""
     item = CONTACTS[contact_key]
     return (
         f'<a href="{escape(item["url"])}">'
-        f'<picture>'
-        f'<source media="(prefers-color-scheme: dark)" '
-        f'srcset="assets/{contact_key}-dark.svg" />'
-        f'<source media="(prefers-color-scheme: light)" '
-        f'srcset="assets/{contact_key}-light.svg" />'
-        f'<img src="assets/{contact_key}-dark.svg" height="{CARD_HEIGHT}" '
-        f'alt="{escape(item["title"])}" />'
-        f'</picture></a>'
+        f'{picture(contact_key, CARD_HEIGHT, item["title"])}'
+        f'</a>'
     )
 
 
@@ -184,10 +252,20 @@ def main():
             )
             print(f"Generated {output}")
 
+    for theme in THEMES:
+        output = OUT_DIR / f"connect-{theme}.svg"
+        output.write_text(render_connect(theme), encoding="utf-8")
+        print(f"Generated {output}")
+
+    spacer = "&nbsp;&nbsp;&nbsp;&nbsp;"
+    cards = f"{spacer}\n  ".join(readme_snippet(c) for c in CONTACTS)
+
     print("\nREADME markup:\n")
     print('<p align="center">')
-    for contact in CONTACTS:
-        print("  " + readme_snippet(contact))
+    print("  " + picture("connect", CONNECT_HEIGHT, CONNECT_LABEL))
+    print("</p>")
+    print('<p align="center">')
+    print("  " + cards)
     print("</p>")
 
 
