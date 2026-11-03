@@ -74,7 +74,7 @@ GRADE_COLORS = {  # (dark, light)
     "A-": ("#38D9A9", "#20A67A"),  # Soft Emerald
     "B+": ("#70E000", "#58B800"),  # Lime Green
     "B": ("#70E000", "#58B800"),
-    "B-": ("#9BE564", "#70B83F"),  # Softer Lime
+    "B-": ("#6D5A91", "#6D5A91"),  # Softer Purple
     "C+": ("#FFD166", "#E5AD35"),  # Warm Yellow
     "C": ("#FFD166", "#E5AD35"),
     "C-": ("#E9B949", "#C99A26"),  # Muted Gold
