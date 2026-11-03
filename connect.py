@@ -10,10 +10,17 @@ OUT_DIR = Path("assets")
 CARD_HEIGHT = 47
 TEXT_X = 73
 RIGHT_PADDING = 25
-CARD_GAP = 20          # approx. px between cards in the README (&nbsp; gaps)
-CONNECT_HEIGHT = 32
+# The heading spans the profile + streak cards above it. Each of those SVGs
+# is 495px wide and shown at width="49%" in the README, so the heading is
+# drawn 2 x 495 wide and shown at width="98%" to scale exactly like them.
+PROFILE_CARD_WIDTH = 495
+HEADING_WIDTH = PROFILE_CARD_WIDTH * 2
+HEADING_DISPLAY_WIDTH = "98%"
+CONNECT_HEIGHT = 40
 CONNECT_LABEL = "Let's Connect"
-CONNECT_CHAR_W = 8.4   # approx. px per char, 16px bold
+CONNECT_FONT_SIZE = 20
+CONNECT_CHAR_W = 10.5  # approx. px per char, 20px bold
+CONNECT_ICON_SIZE = 26
 RAW_BASE = (
     "https://raw.githubusercontent.com/haishhun/profile-cards/"
     "refs/heads/main/assets"
@@ -164,12 +171,6 @@ def render(contact_key: str, theme: str) -> str:
 """
 
 
-def row_width() -> int:
-    """Approximate width of the whole card row, so the heading matches it."""
-    n = len(CONTACTS)
-    return card_width() * n + CARD_GAP * (n - 1)
-
-
 def render_connect(theme: str) -> str:
     """Render the "Let's Connect" heading: icon + label between two lines."""
 
@@ -177,16 +178,16 @@ def render_connect(theme: str) -> str:
         raise ValueError(f"Unknown theme: {theme}")
 
     c = THEMES[theme]
-    width = row_width()
+    width = HEADING_WIDTH
     height = CONNECT_HEIGHT
     cy = height / 2
 
-    icon_size = 20
-    icon_gap = 8
+    icon_size = CONNECT_ICON_SIZE
+    icon_gap = 10
     label_w = len(CONNECT_LABEL) * CONNECT_CHAR_W
     group_w = icon_size + icon_gap + label_w
     start = (width - group_w) / 2
-    line_gap = 16
+    line_gap = 24
 
     return f"""<svg xmlns="http://www.w3.org/2000/svg"
     width="{width}" height="{height}"
@@ -208,23 +209,29 @@ def render_connect(theme: str) -> str:
              .8.3 1.7.4 2.5.4 3.5 0 6.5-2.4 6.5-5.5S11.5 2 8 2z"/>
   </g>
 
-  <text x="{start + icon_size + icon_gap:.1f}" y="{cy + 5.5}"
+  <text x="{start + icon_size + icon_gap:.1f}" y="{cy + CONNECT_FONT_SIZE * 0.35:.1f}"
         font-family="Inter, -apple-system, 'Segoe UI', Arial, sans-serif"
-        font-size="16" font-weight="700"
+        font-size="{CONNECT_FONT_SIZE}" font-weight="700"
         fill="{c['text']}">{escape(CONNECT_LABEL)}</text>
 </svg>
 """
 
 
-def picture(name: str, height: int, alt: str) -> str:
+def picture(name: str, alt: str, height: int | None = None,
+            width: str | None = None) -> str:
     """Theme-aware <picture> tag pointing at the raw GitHub URLs."""
+    size = ""
+    if width:
+        size += f' width="{width}"'
+    if height:
+        size += f' height="{height}"'
     return (
         f'<picture>'
         f'<source media="(prefers-color-scheme: dark)" '
         f'srcset="{RAW_BASE}/{name}-dark.svg" />'
         f'<source media="(prefers-color-scheme: light)" '
         f'srcset="{RAW_BASE}/{name}-light.svg" />'
-        f'<img src="{RAW_BASE}/{name}-dark.svg" height="{height}" '
+        f'<img src="{RAW_BASE}/{name}-dark.svg"{size} '
         f'alt="{escape(alt)}" />'
         f'</picture>'
     )
@@ -235,7 +242,7 @@ def readme_snippet(contact_key: str) -> str:
     item = CONTACTS[contact_key]
     return (
         f'<a href="{escape(item["url"])}">'
-        f'{picture(contact_key, CARD_HEIGHT, item["title"])}'
+        f'{picture(contact_key, item["title"], height=CARD_HEIGHT)}'
         f'</a>'
     )
 
@@ -262,7 +269,8 @@ def main():
 
     print("\nREADME markup:\n")
     print('<p align="center">')
-    print("  " + picture("connect", CONNECT_HEIGHT, CONNECT_LABEL))
+    print("  " + picture("connect", CONNECT_LABEL,
+                          width=HEADING_DISPLAY_WIDTH))
     print("</p>")
     print('<p align="center">')
     print("  " + cards)
