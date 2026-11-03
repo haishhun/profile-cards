@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 
 import datetime as dt
@@ -58,6 +57,14 @@ def main():
                 connect.render(contact, theme),
                 encoding="utf-8",
             )
+
+    # 6. Generate the "Let's Connect" heading.
+    for theme in connect.THEMES:
+        output = profile_card.OUT_DIR / f"connect-{theme}.svg"
+        output.write_text(
+            connect.render_connect(theme),
+            encoding="utf-8",
+        )
 
 
 if __name__ == "__main__":
