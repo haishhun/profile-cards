@@ -7,6 +7,7 @@ import connect
 import intro
 import profile_card
 import streak
+import techstack
 
 
 def main():
@@ -72,6 +73,14 @@ def main():
         output = profile_card.OUT_DIR / f"intro-{theme}.svg"
         output.write_text(
             intro.render(theme),
+            encoding="utf-8",
+        )
+
+    # 8. Generate the "TechStack" heading.
+    for theme in techstack.THEMES:
+        output = profile_card.OUT_DIR / f"techstack-{theme}.svg"
+        output.write_text(
+            techstack.render(theme),
             encoding="utf-8",
         )
 
