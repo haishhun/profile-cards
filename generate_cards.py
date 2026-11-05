@@ -2,7 +2,7 @@
 
 import datetime as dt
 import sys
-
+import featured
 import connect
 import intro
 import profile_card
@@ -83,6 +83,9 @@ def main():
             techstack.render(theme),
             encoding="utf-8",
         )
+
+    # 9. Generate the "Featured Projects" heading and project cards.
+    featured.generate()
 
 
 if __name__ == "__main__":
