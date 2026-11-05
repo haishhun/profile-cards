@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    width="990" height="40"
+    viewBox="0 0 990 40"
+    role="img"
+    aria-label="Featured Projects">
+
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#B07BF0"/>
+      <stop offset="1" stop-color="#5B4BD6"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(1 7.0) scale(1.08333)"
+     fill="none" stroke="url(#g)" stroke-width="2.2"
+     stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+  </g>
+
+  <text x="37" y="27.0"
+        font-family="Inter, -apple-system, 'Segoe UI', Arial, sans-serif"
+        font-size="20" font-weight="700"
+        fill="#18181B">Featured Projects</text>
+
+  <line x1="239.5" y1="20.0" x2="990" y2="20.0"
+        stroke="#C4A8E8" stroke-width="1"/>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    width="495" height="164"
+    viewBox="0 0 495 164"
+    role="img"
+    aria-label="project-management-platform: Backend API for a project management platform, built with FastAPI, PostgreSQL, SQLAlchemy, and Alembic. Containerized with Docker and covered by pytest integration tests.">
+
+  <rect x="0.75" y="0.75"
+        width="493.5" height="162.5"
+        rx="12"
+        fill="#FFFFFF"
+        stroke="#E4E4E7"
+        stroke-width="1"/>
+
+  <g font-family="Inter, -apple-system, 'Segoe UI', Arial, sans-serif">
+    <!-- repo icon (Octicons "repo", 16px grid) -->
+    <g transform="translate(24 20) scale(1.125)" fill="none"
+       stroke="#71717A" stroke-width="1.2" stroke-linejoin="round">
+      <path d="M2.5 13V3.5A1.5 1.5 0 0 1 4 2h8.5v10.5H4A1.5 1.5 0 0 0 2.5 14z"/>
+      <path d="M4 12.5h8.5V15H4"/>
+    </g>
+
+    <text x="52" y="35" font-size="15" font-weight="700"
+          fill="#18181B">project-management-platform</text>
+
+    <circle cx="423.8" cy="30.5" r="4.5" fill="#3572A5"/>
+    <text x="433.8" y="35" font-size="11"
+          fill="#71717A">Python</text>
+
+    <text x="24" y="66" font-size="12" fill="#71717A">Backend API for a project management platform, built with FastAPI,</text>
+    <text x="24" y="84" font-size="12" fill="#71717A">PostgreSQL, SQLAlchemy, and Alembic. Containerized with Docker and</text>
+    <text x="24" y="102" font-size="12" fill="#71717A">covered by pytest integration tests.</text>
+
+    <rect x="24" y="118" width="60" height="22" rx="11" fill="#F3EDFF" stroke="#D6C3FB" stroke-width="1"/>
+    <text x="54.0" y="133" font-size="10.5" font-weight="600" text-anchor="middle" fill="#6D3FD1">FastAPI</text>
+    <rect x="92" y="118" width="78" height="22" rx="11" fill="#F3EDFF" stroke="#D6C3FB" stroke-width="1"/>
+    <text x="131.0" y="133" font-size="10.5" font-weight="600" text-anchor="middle" fill="#6D3FD1">PostgreSQL</text>
+    <rect x="178" y="118" width="78" height="22" rx="11" fill="#F3EDFF" stroke="#D6C3FB" stroke-width="1"/>
+    <text x="217.0" y="133" font-size="10.5" font-weight="600" text-anchor="middle" fill="#6D3FD1">SQLAlchemy</text>
+    <rect x="264" y="118" width="60" height="22" rx="11" fill="#F3EDFF" stroke="#D6C3FB" stroke-width="1"/>
+    <text x="294.0" y="133" font-size="10.5" font-weight="600" text-anchor="middle" fill="#6D3FD1">Alembic</text>
+    <rect x="332" y="118" width="54" height="22" rx="11" fill="#F3EDFF" stroke="#D6C3FB" stroke-width="1"/>
+    <text x="359.0" y="133" font-size="10.5" font-weight="600" text-anchor="middle" fill="#6D3FD1">Docker</text>
+    <rect x="394" y="118" width="54" height="22" rx="11" fill="#F3EDFF" stroke="#D6C3FB" stroke-width="1"/>
+    <text x="421.0" y="133" font-size="10.5" font-weight="600" text-anchor="middle" fill="#6D3FD1">pytest</text>
+  </g>
+</svg>
