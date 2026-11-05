@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 """Generate the "Hi, I'm ..." intro banner (dark + light SVGs)."""
 
@@ -18,7 +17,7 @@ MARGIN_X = 12
 # ---- Content: edit these ---------------------------------------------------
 
 GREETING = "Hi, I'm Dzmitry Haishun"
-EMOJI = "\U0001F44B"  # waving hand
+EMOJI = "\U0001f44b"  # waving hand
 
 BADGE = "Currently Building"
 BADGE_SIZE = 17
@@ -27,8 +26,8 @@ BADGE_HEIGHT = 40
 BADGE_COLOR = "#3fb950"
 
 DESCRIPTION = [
-    "Computer Science student at Hunter College and a backend-focused "
-    "software engineer",
+    ("Computer Science student at Hunter College and a backend-focused "
+    "software engineer"),
     "who enjoys building scalable, maintainable, and real-world systems.",
 ]
 
@@ -71,9 +70,7 @@ ICONS = {
 
 def chip_width(label: str) -> int:
     """Pill width: left pad + icon + gap + text + right pad."""
-    return math.ceil(
-        22 + ICON_SIZE + 14 + len(label) * CHIP_CHAR_W + 24
-    )
+    return math.ceil(22 + ICON_SIZE + 14 + len(label) * CHIP_CHAR_W + 24)
 
 
 def render_chips(c: dict, y: float) -> str:
@@ -88,13 +85,13 @@ def render_chips(c: dict, y: float) -> str:
         <rect x="{x}" y="{y}"
               width="{w}" height="{CHIP_HEIGHT}"
               rx="{CHIP_HEIGHT / 2}"
-              fill="{c['bg']}" fill-opacity="0.55"
-              stroke="{c['border']}" stroke-width="1.2"/>
+              fill="{c["bg"]}" fill-opacity="0.55"
+              stroke="{c["border"]}" stroke-width="1.2"/>
 
         <g transform="translate({x + 22:.1f} {y + (CHIP_HEIGHT - ICON_SIZE) / 2:.1f}) scale({scale:.3f})"
            fill="none"
-           stroke="{c['accent']}"
-           color="{c['accent']}"
+           stroke="{c["accent"]}"
+           color="{c["accent"]}"
            stroke-width="1.3"
            stroke-linecap="round"
            stroke-linejoin="round">
@@ -106,7 +103,7 @@ def render_chips(c: dict, y: float) -> str:
               font-family="{FONT}"
               font-size="{CHIP_SIZE}"
               font-weight="500"
-              fill="{c['text']}">{escape(label)}</text>
+              fill="{c["text"]}">{escape(label)}</text>
         """)
 
         x += w + CHIP_GAP
@@ -139,7 +136,7 @@ def render(theme: str) -> str:
         <text x="{MARGIN_X}" y="{desc_y + i * desc_gap}"
               font-family="{FONT}"
               font-size="{DESC_SIZE}"
-              fill="{c['text']}"
+              fill="{c["text"]}"
               fill-opacity="0.78">{escape(line)}</text>
         """
         for i, line in enumerate(DESCRIPTION)
@@ -158,7 +155,7 @@ def render(theme: str) -> str:
               font-family="{FONT}"
               font-size="36"
               font-weight="800"
-              fill="{c['text']}">{escape(GREETING)} {EMOJI}</text>
+              fill="{c["text"]}">{escape(GREETING)} {EMOJI}</text>
 
         <!-- Green badge background -->
         <rect x="{badge_x}" y="{badge_y}"

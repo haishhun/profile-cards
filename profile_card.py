@@ -109,32 +109,32 @@ CATEGORY = {
 }
 
 THEMES = {
-    "dark": dict(
-        bg="#0D1116",
-        border="#3D444D",
-        text="#F0F6FC",
-        muted="#9198A1",
-        line="#30363D",
-        ring_bg="#30363D",
-        badges=[
+    "dark": {
+        "bg": "#0D1116",
+        "border": "#3D444D",
+        "text": "#F0F6FC",
+        "muted": "#9198A1",
+        "line": "#30363D",
+        "ring_bg": "#30363D",
+        "badges": [
             ("#2b2410", "#4a3d17", "#d9a021"),
             ("#241b3a", "#3f2f69", "#b794f6"),
             ("#14281c", "#1f4a2e", "#4ade80"),
         ],
-    ),
-    "light": dict(
-        bg="#FFFFFF",
-        border="#E4E4E7",
-        text="#18181B",
-        muted="#71717A",
-        line="#E4E4E7",
-        ring_bg="#E4E4E7",
-        badges=[
+    },
+    "light": {
+        "bg": "#FFFFFF",
+        "border": "#E4E4E7",
+        "text": "#18181B",
+        "muted": "#71717A",
+        "line": "#E4E4E7",
+        "ring_bg": "#E4E4E7",
+        "badges": [
             ("#FEF6DD", "#F0D98A", "#9A6B00"),
             ("#F3EDFF", "#D6C3FB", "#6D3FD1"),
             ("#E8F8EE", "#A8E0BC", "#15803D"),
         ],
-    ),
+    },
 }
 
 # Lucide icons (24x24 grid)

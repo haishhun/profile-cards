@@ -33,30 +33,29 @@ query($login: String!, $from: DateTime!, $to: DateTime!) {
 }"""
 
 THEMES = {
-    "dark": dict(
-        bg="#0D1116",
-        border="#3D444D",
-        text="#F0F6FC",
-        muted="#9198A1",
-        label="#9198A1",
-        line="#30363D",
-        bar_bg="#30363D",
-        divider="#30363D",
-        date="#9198A1",
-    ),
-    "light": dict(
-        bg="#FFFFFF",
-        border="#E4E4E7",
-        text="#18181B",
-        muted="#71717A",
-        label="#71717A",
-        line="#E4E4E7",
-        bar_bg="#E4E4E7",
-        divider="#E4E4E7",
-        date="#71717A",
-    ),
+    "dark": {
+        "bg": "#0D1116",
+        "border": "#3D444D",
+        "text": "#F0F6FC",
+        "muted": "#9198A1",
+        "label": "#9198A1",
+        "line": "#30363D",
+        "bar_bg": "#30363D",
+        "divider": "#30363D",
+        "date": "#9198A1",
+    },
+    "light": {
+        "bg": "#FFFFFF",
+        "border": "#E4E4E7",
+        "text": "#18181B",
+        "muted": "#71717A",
+        "label": "#71717A",
+        "line": "#E4E4E7",
+        "bar_bg": "#E4E4E7",
+        "divider": "#E4E4E7",
+        "date": "#71717A",
+    },
 }
-
 
 
 def gql(query, variables):

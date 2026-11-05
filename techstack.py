@@ -22,9 +22,9 @@ from connect import (
 OUT_DIR = Path("assets")
 
 LABEL = "TechStack"
-ICON_X = 1             # small inset so the icon lines up with the cards below
-ICON_GAP = 10          # space between icon and title
-LINE_GAP = 24          # space between title and the line
+ICON_X = 1  # small inset so the icon lines up with the cards below
+ICON_GAP = 10  # space between icon and title
+LINE_GAP = 24  # space between title and the line
 
 # Gradient for the </> icon (top -> bottom), one pair per theme.
 ICON_GRADIENT = {
@@ -49,7 +49,7 @@ def render(theme: str) -> str:
     cy = height / 2
 
     size = CONNECT_ICON_SIZE
-    scale = size / 512                      # icon is drawn in a 512 x 512 box
+    scale = size / 512  # icon is drawn in a 512 x 512 box
     icon_y = cy - size / 2
 
     text_x = ICON_X + size + ICON_GAP
@@ -81,10 +81,10 @@ def render(theme: str) -> str:
   <text x="{text_x}" y="{cy + CONNECT_FONT_SIZE * 0.35:.1f}"
         font-family="{FONT}"
         font-size="{CONNECT_FONT_SIZE}" font-weight="700"
-        fill="{c['text']}">{escape(LABEL)}</text>
+        fill="{c["text"]}">{escape(LABEL)}</text>
 
   <line x1="{line_x:.1f}" y1="{cy}" x2="{width}" y2="{cy}"
-        stroke="{c['border']}" stroke-width="1"/>
+        stroke="{c["border"]}" stroke-width="1"/>
 </svg>
 """
 

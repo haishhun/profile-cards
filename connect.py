@@ -22,10 +22,9 @@ CONNECT_FONT_SIZE = 20
 CONNECT_CHAR_W = 10.5  # approx. px per char, 20px bold
 CONNECT_ICON_SIZE = 26
 RAW_BASE = (
-    "https://raw.githubusercontent.com/haishhun/profile-cards/"
-    "refs/heads/main/assets"
+    "https://raw.githubusercontent.com/haishhun/profile-cards/refs/heads/main/assets"
 )
-TITLE_CHAR_W = 7.2     # approx. px per char, 12px bold
+TITLE_CHAR_W = 7.2  # approx. px per char, 12px bold
 SUBTITLE_CHAR_W = 5.6  # approx. px per char, 10px regular
 
 THEMES = {
@@ -66,7 +65,6 @@ CONTACTS = {
             c0-4.42-3.58-8-8-8"/>
         """,
     },
-
     "linkedin": {
         "title": "LinkedIn",
         "subtitle": "in/dzmitry-haishun",
@@ -89,7 +87,6 @@ CONTACTS = {
             c.03.678 0 7.225 0 7.225z"/>
         """,
     },
-
     "email": {
         "title": "Email",
         "subtitle": "dzhaishun@gmail.com",
@@ -146,26 +143,26 @@ def render(contact_key: str, theme: str) -> str:
     width="{width}" height="{height}"
     viewBox="0 0 {width} {height}"
     role="img"
-    aria-label="{escape(item['title'])}: {escape(item['subtitle'])}">
+    aria-label="{escape(item["title"])}: {escape(item["subtitle"])}">
 
   <rect x="0.75" y="0.75"
         width="{width - 1.5}" height="{height - 1.5}"
         rx="10"
-        fill="{c['bg']}"
-        stroke="{c['border']}"
+        fill="{c["bg"]}"
+        stroke="{c["border"]}"
         stroke-width="1"/>
 
   <g transform="translate(25 10.5) scale(1.625)"
-     fill="{c['accent']}">
-    {item['icon']}
+     fill="{c["accent"]}">
+    {item["icon"]}
   </g>
 
   <g font-family="Inter, -apple-system, 'Segoe UI', Arial, sans-serif">
     <text x="{TEXT_X}" y="19" font-size="12" font-weight="700"
-          fill="{c['text']}">{escape(item['title'])}</text>
+          fill="{c["text"]}">{escape(item["title"])}</text>
 
     <text x="{TEXT_X}" y="34" font-size="10"
-          fill="{c['muted']}">{escape(item['subtitle'])}</text>
+          fill="{c["muted"]}">{escape(item["subtitle"])}</text>
   </g>
 </svg>
 """
@@ -196,13 +193,13 @@ def render_connect(theme: str) -> str:
     aria-label="{escape(CONNECT_LABEL)}">
 
   <line x1="0" y1="{cy}" x2="{start - line_gap:.1f}" y2="{cy}"
-        stroke="{c['border']}" stroke-width="1"/>
+        stroke="{c["border"]}" stroke-width="1"/>
   <line x1="{start + group_w + line_gap:.1f}" y1="{cy}"
         x2="{width}" y2="{cy}"
-        stroke="{c['border']}" stroke-width="1"/>
+        stroke="{c["border"]}" stroke-width="1"/>
 
   <g transform="translate({start:.1f} {cy - icon_size / 2}) scale({icon_size / 16})"
-     fill="none" stroke="{c['accent']}" stroke-width="1.1"
+     fill="none" stroke="{c["accent"]}" stroke-width="1.1"
      stroke-linejoin="round">
     <path d="M8 2C4.5 2 1.5 4.4 1.5 7.5c0 1.4.6 2.6 1.6 3.6
              -.1 1-.4 1.8-.9 2.6 1.2-.3 2.2-.7 2.8-1.1
@@ -212,13 +209,14 @@ def render_connect(theme: str) -> str:
   <text x="{start + icon_size + icon_gap:.1f}" y="{cy + CONNECT_FONT_SIZE * 0.35:.1f}"
         font-family="Inter, -apple-system, 'Segoe UI', Arial, sans-serif"
         font-size="{CONNECT_FONT_SIZE}" font-weight="700"
-        fill="{c['text']}">{escape(CONNECT_LABEL)}</text>
+        fill="{c["text"]}">{escape(CONNECT_LABEL)}</text>
 </svg>
 """
 
 
-def picture(name: str, alt: str, height: int | None = None,
-            width: str | None = None) -> str:
+def picture(
+    name: str, alt: str, height: int | None = None, width: str | None = None
+) -> str:
     """Theme-aware <picture> tag pointing at the raw GitHub URLs."""
     size = ""
     if width:
@@ -226,14 +224,14 @@ def picture(name: str, alt: str, height: int | None = None,
     if height:
         size += f' height="{height}"'
     return (
-        f'<picture>'
+        f"<picture>"
         f'<source media="(prefers-color-scheme: dark)" '
         f'srcset="{RAW_BASE}/{name}-dark.svg" />'
         f'<source media="(prefers-color-scheme: light)" '
         f'srcset="{RAW_BASE}/{name}-light.svg" />'
         f'<img src="{RAW_BASE}/{name}-dark.svg"{size} '
         f'alt="{escape(alt)}" />'
-        f'</picture>'
+        f"</picture>"
     )
 
 
@@ -242,8 +240,8 @@ def readme_snippet(contact_key: str) -> str:
     item = CONTACTS[contact_key]
     return (
         f'<a href="{escape(item["url"])}">'
-        f'{picture(contact_key, item["title"], height=CARD_HEIGHT)}'
-        f'</a>'
+        f"{picture(contact_key, item['title'], height=CARD_HEIGHT)}"
+        f"</a>"
     )
 
 
@@ -269,8 +267,7 @@ def main():
 
     print("\nREADME markup:\n")
     print('<p align="center">')
-    print("  " + picture("connect", CONNECT_LABEL,
-                          width=HEADING_DISPLAY_WIDTH))
+    print("  " + picture("connect", CONNECT_LABEL, width=HEADING_DISPLAY_WIDTH))
     print("</p>")
     print('<p align="center">')
     print("  " + cards)

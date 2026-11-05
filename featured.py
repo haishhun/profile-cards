@@ -21,7 +21,6 @@ from connect import (
     HEADING_DISPLAY_WIDTH,
     HEADING_WIDTH,
     PROFILE_CARD_WIDTH,
-    RAW_BASE,
     picture,
 )
 from profile_card import THEMES as CARD_THEMES
@@ -59,10 +58,10 @@ FEATURED = [
 CARD_W = PROFILE_CARD_WIDTH
 CARD_H = 164
 PAD = 24
-DESC_WRAP = 68          # characters per line at 12px
+DESC_WRAP = 68  # characters per line at 12px
 DESC_MAX_LINES = 3
-CHIP_CHAR_W = 6.0       # approx. px per char, 10.5px semibold
-CHIP_PAD = 9            # horizontal padding inside a chip
+CHIP_CHAR_W = 6.0  # approx. px per char, 10.5px semibold
+CHIP_PAD = 9  # horizontal padding inside a chip
 CHIP_H = 22
 CHIP_GAP = 8
 FONT = "Inter, -apple-system, 'Segoe UI', Arial, sans-serif"
@@ -178,29 +177,29 @@ def render_card(theme: str, project: dict) -> str:
     width="{CARD_W}" height="{CARD_H}"
     viewBox="0 0 {CARD_W} {CARD_H}"
     role="img"
-    aria-label="{escape(project['repo'])}: {escape(project['description'])}">
+    aria-label="{escape(project["repo"])}: {escape(project["description"])}">
 
   <rect x="0.75" y="0.75"
         width="{CARD_W - 1.5}" height="{CARD_H - 1.5}"
         rx="12"
-        fill="{c['bg']}"
-        stroke="{c['border']}"
+        fill="{c["bg"]}"
+        stroke="{c["border"]}"
         stroke-width="1"/>
 
   <g font-family="{FONT}">
     <!-- repo icon (Octicons "repo", 16px grid) -->
     <g transform="translate({PAD} 20) scale(1.125)" fill="none"
-       stroke="{c['muted']}" stroke-width="1.2" stroke-linejoin="round">
+       stroke="{c["muted"]}" stroke-width="1.2" stroke-linejoin="round">
       <path d="M2.5 13V3.5A1.5 1.5 0 0 1 4 2h8.5v10.5H4A1.5 1.5 0 0 0 2.5 14z"/>
       <path d="M4 12.5h8.5V15H4"/>
     </g>
 
     <text x="{PAD + 28}" y="35" font-size="15" font-weight="700"
-          fill="{c['text']}">{escape(project['repo'])}</text>
+          fill="{c["text"]}">{escape(project["repo"])}</text>
 
     <circle cx="{lang_x - 10:.1f}" cy="30.5" r="4.5" fill="{lang_color}"/>
     <text x="{lang_x:.1f}" y="35" font-size="11"
-          fill="{c['muted']}">{escape(lang)}</text>
+          fill="{c["muted"]}">{escape(lang)}</text>
 
 {desc}
 
@@ -254,10 +253,10 @@ def render_heading(theme: str) -> str:
   <text x="{text_x}" y="{cy + CONNECT_FONT_SIZE * 0.35:.1f}"
         font-family="{FONT}"
         font-size="{CONNECT_FONT_SIZE}" font-weight="700"
-        fill="{c['text']}">{escape(label)}</text>
+        fill="{c["text"]}">{escape(label)}</text>
 
   <line x1="{line_x:.1f}" y1="{cy}" x2="{width}" y2="{cy}"
-        stroke="{c['border']}" stroke-width="1"/>
+        stroke="{c["border"]}" stroke-width="1"/>
 </svg>
 """
 
@@ -281,13 +280,13 @@ def generate(projects=None):
 def readme_markup(projects) -> str:
     cards = "\n  ".join(
         f'<a href="{p["url"]}">'
-        f'{picture("project-" + p["repo"], p["repo"], width="49%")}'
+        f"{picture('project-' + p['repo'], p['repo'], width='49%')}"
         f"</a>"
         for p in projects
     )
     return (
         '<p align="center">\n'
-        f'  {picture("featured", "Featured Projects", width=HEADING_DISPLAY_WIDTH)}\n'
+        f"  {picture('featured', 'Featured Projects', width=HEADING_DISPLAY_WIDTH)}\n"
         "</p>\n"
         '<p align="center">\n'
         f"  {cards}\n"

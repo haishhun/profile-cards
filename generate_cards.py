@@ -2,8 +2,9 @@
 
 import datetime as dt
 import sys
-import featured
+
 import connect
+import featured
 import intro
 import profile_card
 import streak
