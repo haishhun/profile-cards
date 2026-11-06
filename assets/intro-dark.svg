@@ -43,13 +43,13 @@
               font-family="Inter, -apple-system, 'Segoe UI', Arial, sans-serif"
               font-size="18"
               fill="#F0F6FC"
-              fill-opacity="0.78">Computer Science student at Hunter College and Python backend developer</text>
+              fill-opacity="0.78">Computer Science student at Hunter College specializing in</text>
         
         <text x="12" y="118"
               font-family="Inter, -apple-system, 'Segoe UI', Arial, sans-serif"
               font-size="18"
               fill="#F0F6FC"
-              fill-opacity="0.78">building scalable APIs and reliable software systems.</text>
+              fill-opacity="0.78">Python backend development and building scalable, reliable software.</text>
         
 
         <!-- Information chips -->
