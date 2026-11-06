@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    width="990" height="40"
+    viewBox="0 0 990 40"
+    role="img"
+    aria-label="Contributions">
+
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse"
+                    x1="0" y1="2" x2="0" y2="22">
+      <stop offset="0" stop-color="#D09FFF"/>
+      <stop offset="1" stop-color="#7366F2"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(1 7.0) scale(1.08333)"
+     fill="none" stroke="url(#g)" stroke-width="2.2"
+     stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="3"/>
+    <line x1="3" y1="12" x2="9" y2="12"/>
+    <line x1="15" y1="12" x2="21" y2="12"/>
+  </g>
+
+  <text x="37" y="27.0"
+        font-family="Inter, -apple-system, 'Segoe UI', Arial, sans-serif"
+        font-size="20" font-weight="700"
+        fill="#F0F6FC">Contributions</text>
+
+  <line x1="197.5" y1="20.0" x2="990" y2="20.0"
+        stroke="#6D5A91" stroke-width="1"/>
+</svg>
