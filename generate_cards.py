@@ -2,7 +2,7 @@
 
 import datetime as dt
 import sys
-
+import headings
 import connect
 import featured
 import intro
@@ -87,6 +87,9 @@ def main():
 
     # 9. Generate the "Featured Projects" heading and project cards.
     featured.generate()
+
+    # 10. Generate headings.
+    headings.generate()
 
 
 if __name__ == "__main__":
