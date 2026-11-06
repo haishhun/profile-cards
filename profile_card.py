@@ -43,45 +43,45 @@ query($login: String!, $from: DateTime!, $to: DateTime!) {
 
 # metric: (value that earns full marks, weight in the score, label shown under "Strong in")
 WEIGHTS = {
-    "commits": (2000, 30, "Activity"),
-    "prs": (300, 20, "Collaboration"),
-    "stars": (1000, 20, "Impact"),
-    "repos": (100, 15, "Repos"),
-    "followers": (500, 15, "Community"),
+    "commits": (2000, 70, "Activity"),
+    "prs": (300, 15, "Collaboration"),
+    "stars": (1000, 5, "Impact"),
+    "repos": (100, 5, "Repos"),
+    "followers": (500, 5, "Community"),
 }
 GRADES = [
     (100, "S+"),
     (90, "S"),
     (80, "A+"),
-    (75, "A"),
-    (70, "A-"),
-    (60, "B+"),
-    (50, "B"),
-    (40, "B-"),
+    (70, "A"),
+    (60, "A-"),
+    (55, "B+"),
+    (45, "B"),
+    (35, "B-"),
     (30, "C+"),
     (25, "C"),
     (20, "C-"),
     (15, "D+"),
-    (12, "D"),
-    (10, "D-"),
+    (10, "D"),
+    (5, "D-"),
     (0, "F"),
 ]
 GRADE_COLORS = {  # (dark, light)
-    "S+": ("#FF007F", "#FF007F"),  # Electric Magenta
-    "S": ("#7B2CBF", "#7B2CBF"),  # Neon Violet
-    "A+": ("#00F5D4", "#00BFA6"),  # Bright Cyan / Teal
-    "A": ("#00B4D8", "#0096B4"),  # Vibrant Cyan
-    "A-": ("#38D9A9", "#20A67A"),  # Soft Emerald
-    "B+": ("#70E000", "#58B800"),  # Lime Green
-    "B": ("#70E000", "#58B800"),
-    "B-": ("#B794F6", "#B794F6"),  # Softer Purple
-    "C+": ("#FFD166", "#E5AD35"),  # Warm Yellow
-    "C": ("#FFD166", "#E5AD35"),
-    "C-": ("#E9B949", "#C99A26"),  # Muted Gold
-    "D+": ("#FF8C42", "#E56B2F"),  # Orange
-    "D": ("#FF6B6B", "#E65353"),  # Deep Orange / Coral
-    "D-": ("#E88989", "#C96666"),  # Muted Coral
-    "F": ("#D90429", "#B80022"),  # Crimson Red
+    "S+": ("#B794F6", "#B794F6"),
+    "S":  ("#B794F6", "#B794F6"),
+    "A+": ("#B794F6", "#B794F6"),
+    "A":  ("#B794F6", "#B794F6"),
+    "A-": ("#B794F6", "#B794F6"),
+    "B+": ("#B794F6", "#B794F6"),
+    "B":  ("#B794F6", "#B794F6"),
+    "B-": ("#B794F6", "#B794F6"),
+    "C+": ("#B794F6", "#B794F6"),
+    "C":  ("#B794F6", "#B794F6"),
+    "C-": ("#B794F6", "#B794F6"),
+    "D+": ("#B794F6", "#B794F6"),
+    "D":  ("#B794F6", "#B794F6"),
+    "D-": ("#B794F6", "#B794F6"),
+    "F":  ("#B794F6", "#B794F6"),
 }
 CATEGORY = {
     "Python": "Backend",
