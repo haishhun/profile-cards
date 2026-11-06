@@ -28,7 +28,7 @@
                 cy="36.0"
                 r="5"
                 fill="#3fb950"/>
-        
+
         <!-- Centered badge text -->
         <text x="798.25"
               y="42.0"
@@ -43,13 +43,13 @@
               font-family="Inter, -apple-system, 'Segoe UI', Arial, sans-serif"
               font-size="18"
               fill="#18181B"
-              fill-opacity="0.78">Computer Science student at Hunter College and a backend-focused software engineer</text>
+              fill-opacity="0.78">Computer Science student at Hunter College and Python backend developer</text>
         
         <text x="12" y="118"
               font-family="Inter, -apple-system, 'Segoe UI', Arial, sans-serif"
               font-size="18"
               fill="#18181B"
-              fill-opacity="0.78">who enjoys building scalable, maintainable, and real-world systems.</text>
+              fill-opacity="0.78">building scalable APIs and reliable software systems.</text>
         
 
         <!-- Information chips -->
@@ -82,7 +82,7 @@
               fill="#18181B">CS @ Hunter College</text>
         
         <rect x="284.75" y="140"
-              width="306" height="42"
+              width="289" height="42"
               rx="21.0"
               fill="#FFFFFF" fill-opacity="0.55"
               stroke="#C4A8E8" stroke-width="1.2"/>
@@ -106,15 +106,15 @@
               font-family="Inter, -apple-system, 'Segoe UI', Arial, sans-serif"
               font-size="16"
               font-weight="500"
-              fill="#18181B">Python Backend Development</text>
+              fill="#18181B">Python Backend Developer</text>
         
-        <rect x="616.75" y="140"
-              width="315" height="42"
+        <rect x="599.75" y="140"
+              width="349" height="42"
               rx="21.0"
               fill="#FFFFFF" fill-opacity="0.55"
               stroke="#C4A8E8" stroke-width="1.2"/>
 
-        <g transform="translate(638.8 150.0) scale(1.375)"
+        <g transform="translate(621.8 150.0) scale(1.375)"
            fill="none"
            stroke="#7B2CBF"
            color="#7B2CBF"
@@ -128,12 +128,12 @@
     
         </g>
 
-        <text x="674.8"
+        <text x="657.8"
               y="166.6"
               font-family="Inter, -apple-system, 'Segoe UI', Arial, sans-serif"
               font-size="16"
               font-weight="500"
-              fill="#18181B">Seeking SWE Internship 2027</text>
+              fill="#18181B">Open to Summer 2027 Internships</text>
         
 
     </svg>

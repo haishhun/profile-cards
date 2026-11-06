@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 """Generate the "Hi, I'm ..." intro banner (dark + light SVGs)."""
 
@@ -26,15 +27,14 @@ BADGE_HEIGHT = 40
 BADGE_COLOR = "#3fb950"
 
 DESCRIPTION = [
-    ("Computer Science student at Hunter College and a backend-focused "
-    "software engineer"),
-    "who enjoys building scalable, maintainable, and real-world systems.",
+    "Computer Science student at Hunter College specializing in",
+    "Python backend development and building scalable, reliable software.",
 ]
 
 CHIPS = [
     ("cap", "CS @ Hunter College"),
-    ("code", "Python Backend Development"),
-    ("target", "Seeking SWE Internship 2027"),
+    ("code", "Python Backend Developer"),
+    ("target", "Open to Summer 2027 Internships"),
 ]
 
 # ----------------------------------------------------------------------------
@@ -113,7 +113,6 @@ def render_chips(c: dict, y: float) -> str:
 
 def render(theme: str) -> str:
     """Render the intro banner for one theme."""
-
     if theme not in THEMES:
         raise ValueError(f"Unknown theme: {theme}")
 
@@ -172,7 +171,7 @@ def render(theme: str) -> str:
                 cy="{badge_y + badge_h / 2}"
                 r="5"
                 fill="{BADGE_COLOR}"/>
-        
+
         <!-- Centered badge text -->
         <text x="{badge_x + badge_w / 2 - 62}"
               y="{badge_y + badge_h / 2 + BADGE_SIZE * 0.35:.1f}"
