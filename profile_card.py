@@ -43,10 +43,10 @@ query($login: String!, $from: DateTime!, $to: DateTime!) {
 
 # metric: (value that earns full marks, weight in the score, label shown under "Strong in")
 WEIGHTS = {
-    "commits": (2000, 70, "Activity"),
+    "commits": (2000, 60, "Activity"),
     "prs": (300, 15, "Collaboration"),
-    "stars": (1000, 5, "Impact"),
-    "repos": (100, 5, "Repos"),
+    "stars": (1000, 10, "Impact"),
+    "repos": (100, 10, "Repos"),
     "followers": (500, 5, "Community"),
 }
 GRADES = [
